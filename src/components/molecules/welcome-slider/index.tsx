@@ -15,6 +15,7 @@ import { useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Logo } from "../logo";
+import { Link } from "@tanstack/react-router";
 
 export const WelcomeSlider = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
@@ -35,6 +36,7 @@ export const WelcomeSlider = () => {
       bgColor={"#1A181B"}
       color={"white"}
       h={"100dvh"}
+      minH={"800px"}
       justifyContent={"space-between"}
       p={8}
       overflow={"hidden"}
@@ -145,12 +147,17 @@ export const WelcomeSlider = () => {
             _hover={{
               bgColor: "#0098EA",
             }}
+            onClick={() => window.scrollTo(0, 0)}
           >
-            Connect Wallet
+            <Link to="/home">Connect Wallet</Link>
           </Button>
         )}
-        <Button variant="link" color="white">
-          Skip to the App
+        <Button
+          variant="link"
+          color="white"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <Link to="/home">Skip to the App </Link>
         </Button>
       </Stack>
       <Popover>
